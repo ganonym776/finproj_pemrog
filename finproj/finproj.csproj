@@ -33,8 +33,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bunifu.Core, Version=1.11.5.21, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForms.BunifuButton">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDataGridView">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDatePicker">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuDatePicker.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuDropdown">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuDropdown.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuImageButton">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuImageButton.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuLabel">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuLabel.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
+    </Reference>
+    <Reference Include="Bunifu_UI_v1.5.3">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +77,74 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Model\Context\DbContext.cs" />
+    <Compile Include="Model\Entity\Pegawai.cs" />
+    <Compile Include="Model\Repository\PegawaiRepository.cs" />
+    <Compile Include="View\Absensi.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Absensi.Designer.cs">
+      <DependentUpon>Absensi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Home.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Karyawan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Karyawan.Designer.cs">
+      <DependentUpon>Karyawan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Lembur.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Lembur.Designer.cs">
+      <DependentUpon>Lembur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\loginform.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\loginform.Designer.cs">
+      <DependentUpon>loginform.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MenuUtama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MenuUtama.Designer.cs">
+      <DependentUpon>MenuUtama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\Penggajian.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Penggajian.Designer.cs">
+      <DependentUpon>Penggajian.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="View\Absensi.resx">
+      <DependentUpon>Absensi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Karyawan.resx">
+      <DependentUpon>Karyawan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Lembur.resx">
+      <DependentUpon>Lembur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\loginform.resx">
+      <DependentUpon>loginform.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\MenuUtama.resx">
+      <DependentUpon>MenuUtama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\Penggajian.resx">
+      <DependentUpon>Penggajian.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -75,6 +166,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
