@@ -40,8 +40,8 @@
             this.btn_krywn = new Bunifu.Framework.UI.BunifuFlatButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Header = new System.Windows.Forms.Panel();
-            this.bunifuImageButton4 = new Bunifu.Framework.UI.BunifuImageButton();
-            this.bunifuImageButton3 = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_close = new Bunifu.Framework.UI.BunifuImageButton();
+            this.btn_minimize = new Bunifu.Framework.UI.BunifuImageButton();
             this.label1 = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,8 +53,8 @@
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimize)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +87,7 @@
             this.btn_logout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.btn_logout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btn_logout.BorderRadius = 0;
-            this.btn_logout.ButtonText = "Logout";
+            this.btn_logout.ButtonText = "Settings";
             this.btn_logout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_logout.DisabledColor = System.Drawing.Color.Gray;
             this.btn_logout.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -113,7 +113,7 @@
             this.btn_logout.selected = false;
             this.btn_logout.Size = new System.Drawing.Size(200, 34);
             this.btn_logout.TabIndex = 8;
-            this.btn_logout.Text = "Logout";
+            this.btn_logout.Text = "Settings";
             this.btn_logout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btn_logout.Textcolor = System.Drawing.Color.White;
             this.btn_logout.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -317,7 +317,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 6);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(172, 164);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -328,8 +328,8 @@
             // Header
             // 
             this.Header.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(110)))), ((int)(((byte)(239)))));
-            this.Header.Controls.Add(this.bunifuImageButton4);
-            this.Header.Controls.Add(this.bunifuImageButton3);
+            this.Header.Controls.Add(this.btn_close);
+            this.Header.Controls.Add(this.btn_minimize);
             this.Header.Controls.Add(this.label1);
             this.Header.Dock = System.Windows.Forms.DockStyle.Top;
             this.Header.Location = new System.Drawing.Point(0, 0);
@@ -337,33 +337,33 @@
             this.Header.Size = new System.Drawing.Size(875, 37);
             this.Header.TabIndex = 1;
             // 
-            // bunifuImageButton4
+            // btn_close
             // 
-            this.bunifuImageButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(110)))), ((int)(((byte)(239)))));
-            this.bunifuImageButton4.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton4.Image")));
-            this.bunifuImageButton4.ImageActive = null;
-            this.bunifuImageButton4.Location = new System.Drawing.Point(838, 6);
-            this.bunifuImageButton4.Name = "bunifuImageButton4";
-            this.bunifuImageButton4.Size = new System.Drawing.Size(25, 25);
-            this.bunifuImageButton4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton4.TabIndex = 5;
-            this.bunifuImageButton4.TabStop = false;
-            this.bunifuImageButton4.Zoom = 20;
-            this.bunifuImageButton4.Click += new System.EventHandler(this.bunifuImageButton4_Click);
+            this.btn_close.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(110)))), ((int)(((byte)(239)))));
+            this.btn_close.Image = ((System.Drawing.Image)(resources.GetObject("btn_close.Image")));
+            this.btn_close.ImageActive = null;
+            this.btn_close.Location = new System.Drawing.Point(838, 6);
+            this.btn_close.Name = "btn_close";
+            this.btn_close.Size = new System.Drawing.Size(25, 25);
+            this.btn_close.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_close.TabIndex = 5;
+            this.btn_close.TabStop = false;
+            this.btn_close.Zoom = 20;
+            this.btn_close.Click += new System.EventHandler(this.bunifuImageButton4_Click);
             // 
-            // bunifuImageButton3
+            // btn_minimize
             // 
-            this.bunifuImageButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(110)))), ((int)(((byte)(239)))));
-            this.bunifuImageButton3.Image = ((System.Drawing.Image)(resources.GetObject("bunifuImageButton3.Image")));
-            this.bunifuImageButton3.ImageActive = null;
-            this.bunifuImageButton3.Location = new System.Drawing.Point(806, 6);
-            this.bunifuImageButton3.Name = "bunifuImageButton3";
-            this.bunifuImageButton3.Size = new System.Drawing.Size(25, 25);
-            this.bunifuImageButton3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.bunifuImageButton3.TabIndex = 4;
-            this.bunifuImageButton3.TabStop = false;
-            this.bunifuImageButton3.Zoom = 20;
-            this.bunifuImageButton3.Click += new System.EventHandler(this.bunifuImageButton3_Click);
+            this.btn_minimize.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(110)))), ((int)(((byte)(239)))));
+            this.btn_minimize.Image = ((System.Drawing.Image)(resources.GetObject("btn_minimize.Image")));
+            this.btn_minimize.ImageActive = null;
+            this.btn_minimize.Location = new System.Drawing.Point(806, 6);
+            this.btn_minimize.Name = "btn_minimize";
+            this.btn_minimize.Size = new System.Drawing.Size(25, 25);
+            this.btn_minimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_minimize.TabIndex = 4;
+            this.btn_minimize.TabStop = false;
+            this.btn_minimize.Zoom = 20;
+            this.btn_minimize.Click += new System.EventHandler(this.bunifuImageButton3_Click);
             // 
             // label1
             // 
@@ -465,8 +465,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.Header.ResumeLayout(false);
             this.Header.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bunifuImageButton3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_close)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimize)).EndInit();
             this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -484,15 +484,15 @@
         private Bunifu.Framework.UI.BunifuFlatButton btn_krywn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Panel Header;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton4;
-        private Bunifu.Framework.UI.BunifuImageButton bunifuImageButton3;
+        private Bunifu.Framework.UI.BunifuImageButton btn_close;
+        private Bunifu.Framework.UI.BunifuImageButton btn_minimize;
         private System.Windows.Forms.Label label1;
         private Bunifu.Framework.UI.BunifuDragControl bunifuDragControl1;
         private System.Windows.Forms.Panel panel2;
-        private Karyawan karyawan1;
-        private Absensi absensi1;
-        private Penggajian penggajian1;
-        private Lembur lembur1;
+        //private Karyawan karyawan1;
+        //private Absensi absensi1;
+        //private Penggajian penggajian1;
+        //Lembur lembur1;
         private Home Home;
         private Absensi Absensi;
         private Penggajian Penggajian;

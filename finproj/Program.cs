@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using finproj.Model.Context;
 using System.Windows.Forms;
 
 namespace finproj
@@ -16,7 +17,7 @@ namespace finproj
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MenuUtama());
+            Application.Run(new loginform());
         }
     }
 }

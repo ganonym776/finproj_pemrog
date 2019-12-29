@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using finproj.Model.Entity;
+using finproj.Controller;
 
 namespace finproj
 {
     public partial class MenuUtama : Form
     {
-        loginform login = new loginform();
-
         
         public MenuUtama()
         {
@@ -23,8 +23,6 @@ namespace finproj
 
         private void login_Load(object sender, EventArgs e)
         {
-            this.Show();
-            login.ShowDialog();
             
         }
 
@@ -33,10 +31,6 @@ namespace finproj
 
         }
 
-        internal static FormStartPosition MousePosition()
-        {
-            throw new NotImplementedException();
-        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -51,27 +45,15 @@ namespace finproj
         private void bunifuImageButton4_Click(object sender, EventArgs e)
         {
             this.Close();
-            if(login.Visible == true)
-            {
-                login.Close();
-            }
+
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            if (login.Visible == true)
-            {
-                login.Hide();
-            }
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
-        {
-            login.Show();
-        }
-
-        private void karyawan1_Load(object sender, EventArgs e)
         {
 
         }

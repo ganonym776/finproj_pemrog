@@ -77,8 +77,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\AbsensiController.cs" />
+    <Compile Include="Controller\GajiController.cs" />
+    <Compile Include="Controller\JabatanController.cs" />
+    <Compile Include="Controller\LemburController.cs" />
+    <Compile Include="Controller\PegawaiController.cs" />
     <Compile Include="Model\Context\DbContext.cs" />
+    <Compile Include="Model\Entity\Absensi.cs" />
+    <Compile Include="Model\Entity\admin.cs" />
+    <Compile Include="Model\Entity\Jabatan.cs" />
+    <Compile Include="Model\Entity\Lembur.cs" />
     <Compile Include="Model\Entity\Pegawai.cs" />
+    <Compile Include="Model\Entity\Penggajian.cs" />
+    <Compile Include="Model\Repository\AbsensiRepository.cs" />
+    <Compile Include="Model\Repository\AdminRepository.cs" />
+    <Compile Include="Model\Repository\GajiRepository.cs" />
+    <Compile Include="Model\Repository\JabatanRepository.cs" />
+    <Compile Include="Model\Repository\LemburRepository.cs" />
     <Compile Include="Model\Repository\PegawaiRepository.cs" />
     <Compile Include="View\Absensi.cs">
       <SubType>UserControl</SubType>
@@ -167,8 +182,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -3,43 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 using System.Data;
+using System.Windows.Forms;
 
 namespace finproj.Model.Context
 {
     public class DbContext : IDisposable
     {
-        private SqlConnection _conn;
+        // deklarasi private variabel / field
+        private OleDbConnection _conn;
 
-        public SqlConnection Conn 
-        {
-            get { return _conn ?? (_conn = GetConnectionsString()); }
+        // deklarasi property Conn (connection), untuk menyimpan objek koneksi
+        public OleDbConnection Conn {
+            get { return _conn ?? (_conn = GetOpenConnection()); }
         }
-        private SqlConnection GetConnectionsString()
+
+        // Method untuk melakukan koneksi ke database
+        private OleDbConnection GetOpenConnection()
         {
-            SqlConnection conn = null;
+            OleDbConnection conn = null; // deklarasi objek connection
 
-            try
+            try // penggunaan blok try-catch untuk penanganan error
             {
-                string dbName = @"E:\Tugas Kuliah\Semester 3\Pemrog Lanjut\finproj\finproj\finproj\bin\Debug\database\DbPerpustakaan.mdf";
-                string connectionString = string.Format("Server=DESKTOP-OD6FK47\\SQLEXPRESS;" +
-                                       "Trusted_Connection=true;" +
-                                       "Database={0};" +
-                                       "User Instance=true;" +
-                                       "Connection timeout=30", dbName);
-                conn = new SqlConnection(connectionString);
-                conn.Open();
+                // atur ulang lokasi database yang disesuaikan dengan
+                // lokasi database perpustakaan Anda
+                string startupPath = Environment.CurrentDirectory;
+                string dbName = startupPath + @"\Database\DbPayroll.mdb";
+
+                // deklarasi variabel connectionString, ref: https://www.connectionstrings.com/
+                string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}", dbName);
+
+                conn = new OleDbConnection(connectionString); // buat objek connection
+                conn.Open(); // buka koneksi ke database
             }
-
-            catch(Exception ex)
+            // jika terjadi error di blok try, akan ditangani langsung oleh blok catch
+            catch (Exception ex)
             {
-                System.Diagnostics.Debug.Print("Open Connection Error: {0}", ex.Message);
+                MessageBox.Show("Can't connect to data sources");
+                //System.Diagnostics.Debug.Print("Open Connection Error: {0}", ex.Message);
             }
 
             return conn;
         }
 
+        // Method ini digunakan untuk menghapus objek koneksi dari memory ketika sudah tidak digunakan
         public void Dispose()
         {
             if (_conn != null)

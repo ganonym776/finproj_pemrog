@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginform));
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
@@ -37,16 +38,15 @@
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
             Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox.StateProperties();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginform));
             this.bunifuElipse1 = new Bunifu.Framework.UI.BunifuElipse(this.components);
             this.login_header = new System.Windows.Forms.Panel();
             this.lb_login = new System.Windows.Forms.Label();
             this.bunifuDragControl1 = new Bunifu.Framework.UI.BunifuDragControl(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_cancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txt_username = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.btn_login = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txt_password = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
-            this.btn_cancel = new Bunifu.Framework.UI.BunifuThinButton2();
             this.login_header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -65,7 +65,6 @@
             this.login_header.Name = "login_header";
             this.login_header.Size = new System.Drawing.Size(269, 89);
             this.login_header.TabIndex = 0;
-            this.login_header.Click += new System.EventHandler(this.btn_login_Click_1);
             this.login_header.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // lb_login
@@ -99,6 +98,33 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(269, 259);
             this.panel1.TabIndex = 1;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint_1);
+            // 
+            // btn_cancel
+            // 
+            this.btn_cancel.ActiveBorderThickness = 1;
+            this.btn_cancel.ActiveCornerRadius = 20;
+            this.btn_cancel.ActiveFillColor = System.Drawing.Color.SeaGreen;
+            this.btn_cancel.ActiveForecolor = System.Drawing.Color.Transparent;
+            this.btn_cancel.ActiveLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.btn_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cancel.BackgroundImage")));
+            this.btn_cancel.ButtonText = "Cancel";
+            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_cancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_cancel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.btn_cancel.IdleBorderThickness = 1;
+            this.btn_cancel.IdleCornerRadius = 20;
+            this.btn_cancel.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.btn_cancel.IdleForecolor = System.Drawing.Color.SeaGreen;
+            this.btn_cancel.IdleLineColor = System.Drawing.Color.SeaGreen;
+            this.btn_cancel.Location = new System.Drawing.Point(34, 175);
+            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btn_cancel.Name = "btn_cancel";
+            this.btn_cancel.Size = new System.Drawing.Size(89, 37);
+            this.btn_cancel.TabIndex = 10;
+            this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // txt_username
             // 
@@ -273,32 +299,6 @@
             this.txt_password.TextPlaceholder = "Password";
             this.txt_password.UseSystemPasswordChar = false;
             this.txt_password.WordWrap = true;
-            // 
-            // btn_cancel
-            // 
-            this.btn_cancel.ActiveBorderThickness = 1;
-            this.btn_cancel.ActiveCornerRadius = 20;
-            this.btn_cancel.ActiveFillColor = System.Drawing.Color.SeaGreen;
-            this.btn_cancel.ActiveForecolor = System.Drawing.Color.Transparent;
-            this.btn_cancel.ActiveLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
-            this.btn_cancel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btn_cancel.BackgroundImage")));
-            this.btn_cancel.ButtonText = "Cancel";
-            this.btn_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_cancel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_cancel.ForeColor = System.Drawing.Color.SeaGreen;
-            this.btn_cancel.IdleBorderThickness = 1;
-            this.btn_cancel.IdleCornerRadius = 20;
-            this.btn_cancel.IdleFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.btn_cancel.IdleForecolor = System.Drawing.Color.SeaGreen;
-            this.btn_cancel.IdleLineColor = System.Drawing.Color.SeaGreen;
-            this.btn_cancel.Location = new System.Drawing.Point(34, 175);
-            this.btn_cancel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.btn_cancel.Name = "btn_cancel";
-            this.btn_cancel.Size = new System.Drawing.Size(89, 37);
-            this.btn_cancel.TabIndex = 10;
-            this.btn_cancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
             // loginform
             // 
