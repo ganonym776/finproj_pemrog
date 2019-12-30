@@ -5,12 +5,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
+
 namespace finproj.Model.Entity
 {
-    public class Penggajian
+    public class Gaji
     {
         public int Id_penggajian { get; set; }
         public int Id_karyawan { get; set; }
+        public string Nm_krywn { get; set; }
+        public string Nm_adm { get; set; }
+        public string Nm_jbt { get; set; }
         public int Kd_jbt { get; set; }
         public int Id_adm { get; set; }
         public int Period_ke { get; set; }

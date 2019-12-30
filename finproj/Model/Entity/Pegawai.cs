@@ -25,5 +25,6 @@ namespace finproj.Model.Entity
         public int KodeJbt { get; set; }
         public DateTime TglMasuk { get; set; }
         public string Ttl { get; set; }
+        public string Nm_jbt { get; set; }
     }
 }

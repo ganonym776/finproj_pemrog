@@ -32,7 +32,7 @@ namespace finproj.Model.Context
                 string dbName = startupPath + @"\Database\DbPayroll.mdb";
 
                 // deklarasi variabel connectionString, ref: https://www.connectionstrings.com/
-                string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source={0}", dbName);
+                string connectionString = string.Format("Provider=Microsoft.Jet.OLEDB.4.0;Data Source='"+dbName+"'");
 
                 conn = new OleDbConnection(connectionString); // buat objek connection
                 conn.Open(); // buka koneksi ke database

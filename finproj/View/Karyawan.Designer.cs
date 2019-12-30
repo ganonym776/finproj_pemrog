@@ -566,7 +566,6 @@
             this.drpdAgama.Size = new System.Drawing.Size(134, 33);
             this.drpdAgama.TabIndex = 17;
             this.drpdAgama.Text = "Agama";
-            this.drpdAgama.SelectedIndexChanged += new System.EventHandler(this.bunifuDropdown3_SelectedIndexChanged);
             // 
             // drpdStatus
             // 
@@ -649,7 +648,6 @@
             this.txt_Feedback.Size = new System.Drawing.Size(173, 32);
             this.txt_Feedback.TabIndex = 20;
             this.txt_Feedback.Text = "Karyawan dengan kode\r\nxxxxx berhasil ditambahkan!";
-            this.txt_Feedback.Click += new System.EventHandler(this.txt_Status_Click);
             // 
             // btn_Add
             // 
@@ -1002,6 +1000,7 @@
             this.btn_Cari.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btn_Cari.TextMarginLeft = 0;
             this.btn_Cari.UseDefaultRadiusAndThickness = true;
+            this.btn_Cari.Click += new System.EventHandler(this.btn_Cari_Click);
             // 
             // btn_Ubah
             // 
@@ -1075,13 +1074,15 @@
             // 
             // lvPegawai
             // 
+            this.lvPegawai.FullRowSelect = true;
+            this.lvPegawai.GridLines = true;
             this.lvPegawai.HideSelection = false;
-            this.lvPegawai.Location = new System.Drawing.Point(3, 320);
+            this.lvPegawai.Location = new System.Drawing.Point(3, 319);
+            this.lvPegawai.MultiSelect = false;
             this.lvPegawai.Name = "lvPegawai";
-            this.lvPegawai.Size = new System.Drawing.Size(672, 190);
+            this.lvPegawai.Size = new System.Drawing.Size(672, 191);
             this.lvPegawai.TabIndex = 28;
             this.lvPegawai.UseCompatibleStateImageBehavior = false;
-            this.lvPegawai.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // drpdPddkn
             // 
@@ -1174,7 +1175,7 @@
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txtCari;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_Cari;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton btn_Ubah;
-        private System.Windows.Forms.ListView lvPegawai;
         private Bunifu.UI.WinForms.BunifuDropdown drpdPddkn;
+        protected System.Windows.Forms.ListView lvPegawai;
     }
 }

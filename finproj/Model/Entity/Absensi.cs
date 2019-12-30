@@ -10,6 +10,7 @@ namespace finproj.Model.Entity
     {
         public int Id { get; set; }
         public int Id_karyawan { get; set; }
+        public string Nm_krywn { get; set; }
         public DateTime Tanggal { get; set; }
         public DateTime Jam_masuk { get; set; }
 

@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using finproj.Model.Entity;
 using finproj.Model.Repository;
 using finproj.Model.Context;
-using System.Data.OleDb;
 using System.Windows.Forms;
 
 namespace finproj.Controller
@@ -14,7 +13,7 @@ namespace finproj.Controller
     public class PegawaiController
     {
         private PegawaiRepository _repository;
-
+        /// <param name="nama"></param>
         public List<Pegawai> ReadByNama(string nama)
         {
             // membuat objek collection

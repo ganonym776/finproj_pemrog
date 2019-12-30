@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Data.OleDb;
 using finproj.Model.Context;
 using finproj.Model.Entity;
+using System.Windows.Forms;
+
 
 namespace finproj.Model.Repository
 {
@@ -30,6 +32,7 @@ namespace finproj.Model.Repository
             {
                 try
                 {
+                    MessageBox.Show("haaaaaaaaaaaaaaaaaa");
                     // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
                     result = cmd.ExecuteNonQuery();
                 }
@@ -84,9 +87,7 @@ namespace finproj.Model.Repository
             List<Pegawai> list = new List<Pegawai>();
             try
             {
-                string sql = @"select Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, Kd_jbt, Nm_jbt, Tgl_masuk
-                           from karyawan join jabatan on karyawan.Kd_jbt = jabatan.Kd_jbt
-                           order by Nm_karyawan";
+                string sql = @"select ID_karyawan, Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, Nm_jbt, Tgl_masuk from karyawan inner join jabatan on karyawan.Kd_jbt = jabatan.Kd_jbt";
 
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
@@ -96,8 +97,9 @@ namespace finproj.Model.Repository
                         while (dtr.Read())
                         {
                             // proses konversi dari row result set ke object
-                            Pegawai krywn = new Pegawai();                    
-                            krywn.IdKrywn = int.Parse(dtr["ID_karyawan"].ToString());
+                            Pegawai krywn = new Pegawai();
+                            //MessageBox.Show("'"+dtr["ID_karyawan"]+"'");
+                            krywn.IdKrywn = Convert.ToInt32(dtr["ID_karyawan"].ToString());
                             krywn.NamaKrywn = dtr["Nm_karyawan"].ToString();
                             krywn.Nik = dtr["Nik"].ToString();
                             krywn.Gender = dtr["Gender"].ToString();
@@ -105,16 +107,15 @@ namespace finproj.Model.Repository
                             krywn.Agama = dtr["Agama"].ToString();
                             krywn.Alamat = dtr["Alamat"].ToString();
                             krywn.Telp = dtr["Telp"].ToString();
-                            krywn.TmptLahir = dtr["Tmpt_lahir"].ToString();
-                            krywn.TglLahir = DateTime.Parse(dtr["Tgl_lahir"].ToString());
-                            krywn.Ttl = krywn.TmptLahir + ", " + krywn.TglLahir;
+                            krywn.TglLahir = Convert.ToDateTime(dtr["Tgl_lahir"].ToString());
+                            krywn.Ttl = dtr["Tmpt_lahir"].ToString() +", "+ krywn.TglLahir.ToLongDateString();
                             krywn.Status = dtr["Status"].ToString();
-                            Jabatan jbt = new Jabatan();
-                            jbt.Nm_jbt = dtr["Nm_jbt"].ToString();
-
-
+                            krywn.Nm_jbt = dtr["Nm_jbt"].ToString();
+                            krywn.TglMasuk = Convert.ToDateTime(dtr["Tgl_masuk"].ToString());
+                            
                             // tambahkan objek mahasiswa ke dalam collection
                             list.Add(krywn);
+                            
                         }
                     }
                 }
@@ -131,8 +132,8 @@ namespace finproj.Model.Repository
             List<Pegawai> list = new List<Pegawai>();
             try
             {
-                string sql = @"select Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, Kd_jbt, Nm_jbt, Tgl_masuk
-                           from karyawan join jabatan on karyawan.Kd_jbt = jabatan.Kd_jbt
+                string sql = @"select Id_karyawan, Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, karyawan.Kd_jbt, Nm_jbt, Tgl_masuk
+                           from karyawan inner join jabatan on karyawan.Kd_jbt = jabatan.Kd_jbt
                             where Nm_karyawan like '"+nama+"' order by Nm_karyawan";
 
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
@@ -146,7 +147,7 @@ namespace finproj.Model.Repository
                         {
                             // proses konversi dari row result set ke object
                             Pegawai krywn = new Pegawai();
-                            krywn.IdKrywn = int.Parse(dtr["ID_karyawan"].ToString());
+                            krywn.IdKrywn = Convert.ToInt32(dtr["ID_karyawan"].ToString());
                             krywn.NamaKrywn = dtr["Nm_karyawan"].ToString();
                             krywn.Nik = dtr["Nik"].ToString();
                             krywn.Gender = dtr["Gender"].ToString();
@@ -154,13 +155,11 @@ namespace finproj.Model.Repository
                             krywn.Agama = dtr["Agama"].ToString();
                             krywn.Alamat = dtr["Alamat"].ToString();
                             krywn.Telp = dtr["Telp"].ToString();
-                            krywn.TmptLahir = dtr["Tmpt_lahir"].ToString();
-                            krywn.TglLahir = DateTime.Parse(dtr["Tgl_lahir"].ToString());
-                            krywn.Ttl = krywn.TmptLahir + ", " + krywn.TglLahir;
+                            krywn.TglLahir = Convert.ToDateTime(dtr["Tgl_lahir"].ToString());
+                            krywn.Ttl = dtr["Tmpt_lahir"].ToString() + ", " + krywn.TglLahir.ToLongDateString();
                             krywn.Status = dtr["Status"].ToString();
-                            Jabatan jbt = new Jabatan();
-                            jbt.Nm_jbt = dtr["Nm_jbt"].ToString();
-                            // tambahkan objek mahasiswa ke dalam collection
+                            krywn.Nm_jbt = dtr["Nm_jbt"].ToString();
+                            krywn.TglMasuk = Convert.ToDateTime(dtr["Tgl_masuk"].ToString());
                             list.Add(krywn);
                         }
                     }
