@@ -16,9 +16,8 @@ namespace finproj
 {
     public partial class loginform : Form
     {
-        
-        
-        
+        //public unsafe int** Getadmin { get; set; }
+
         public loginform()
         {
             InitializeComponent();
@@ -53,6 +52,7 @@ namespace finproj
             if (CekAdmin.ReadAdmin(txt_username.Text, txt_password.Text) == true)
             {
                 MenuUtama Mu = new MenuUtama();
+                this.Hide();
                 Mu.Show(); 
             }
             else

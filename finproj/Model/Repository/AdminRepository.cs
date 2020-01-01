@@ -30,14 +30,12 @@ namespace finproj.Model.Repository
 
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
-                    //cmd.Parameters.AddWithValue("@Uname", "%"+ Uname +"%");
-                    //cmd.Parameters.AddWithValue("@Pass", "%" + Pass + "%");
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
                     {
                         while (dtr.Read())
                         {
                             admin adm = new admin();
-                            adm.id_adm = int.Parse(dtr["ID_adm"].ToString());
+                            adm.id_adm = Convert.ToInt32(dtr["ID_adm"].ToString());
                             adm.Nm_admin = dtr["Nm_adm"].ToString();
                             result = true;
                         } 

@@ -34,6 +34,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Bunifu.Core, Version=1.11.5.21, Culture=neutral, PublicKeyToken=e8e24ccd28363fe9" />
+    <Reference Include="Bunifu.UI.WinForm.BunifuShadowPanel">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForm.BunifuShadowPanel.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuButton">
       <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuButton.dll</HintPath>
     </Reference>
@@ -55,11 +58,18 @@
     <Reference Include="Bunifu.UI.WinForms.BunifuPictureBox">
       <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuPictureBox.dll</HintPath>
     </Reference>
+    <Reference Include="Bunifu.UI.WinForms.BunifuRadioButton">
+      <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuRadioButton.dll</HintPath>
+    </Reference>
     <Reference Include="Bunifu.UI.WinForms.BunifuTextbox">
       <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu.UI.WinForms.BunifuTextbox.dll</HintPath>
     </Reference>
     <Reference Include="Bunifu_UI_v1.5.3">
       <HintPath>C:\Users\Ganonym\Downloads\bunifu\Bunifu_UI_v1.5.3.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1003\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,11 +111,11 @@
     <Compile Include="View\Absensi.Designer.cs">
       <DependentUpon>Absensi.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\Home.cs">
+    <Compile Include="View\FormGaji.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="View\Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
+    <Compile Include="View\FormGaji.Designer.cs">
+      <DependentUpon>FormGaji.cs</DependentUpon>
     </Compile>
     <Compile Include="View\Karyawan.cs">
       <SubType>UserControl</SubType>
@@ -139,11 +149,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="View\Settings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="View\Absensi.resx">
       <DependentUpon>Absensi.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\Home.resx">
-      <DependentUpon>Home.cs</DependentUpon>
+    <EmbeddedResource Include="View\FormGaji.resx">
+      <DependentUpon>FormGaji.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\Karyawan.resx">
       <DependentUpon>Karyawan.cs</DependentUpon>
@@ -169,6 +185,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -47,6 +47,8 @@
             this.txt_username = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
             this.btn_login = new Bunifu.Framework.UI.BunifuThinButton2();
             this.txt_password = new Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.login_header.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -89,6 +91,8 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(64)))));
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btn_cancel);
             this.panel1.Controls.Add(this.txt_username);
             this.panel1.Controls.Add(this.btn_login);
@@ -182,7 +186,7 @@
             this.txt_username.OnIdleState = stateProperties4;
             this.txt_username.PasswordChar = '\0';
             this.txt_username.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_username.PlaceholderText = "Username";
+            this.txt_username.PlaceholderText = "";
             this.txt_username.ReadOnly = false;
             this.txt_username.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_username.SelectedText = "";
@@ -196,7 +200,7 @@
             this.txt_username.TextMarginBottom = 0;
             this.txt_username.TextMarginLeft = 5;
             this.txt_username.TextMarginTop = 0;
-            this.txt_username.TextPlaceholder = "Username";
+            this.txt_username.TextPlaceholder = "";
             this.txt_username.UseSystemPasswordChar = false;
             this.txt_username.WordWrap = true;
             // 
@@ -280,9 +284,9 @@
             stateProperties8.ForeColor = System.Drawing.Color.Empty;
             stateProperties8.PlaceholderForeColor = System.Drawing.Color.Empty;
             this.txt_password.OnIdleState = stateProperties8;
-            this.txt_password.PasswordChar = '\0';
+            this.txt_password.PasswordChar = '●';
             this.txt_password.PlaceholderForeColor = System.Drawing.Color.Silver;
-            this.txt_password.PlaceholderText = "Password";
+            this.txt_password.PlaceholderText = "";
             this.txt_password.ReadOnly = false;
             this.txt_password.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.txt_password.SelectedText = "";
@@ -296,9 +300,33 @@
             this.txt_password.TextMarginBottom = 0;
             this.txt_password.TextMarginLeft = 5;
             this.txt_password.TextMarginTop = 0;
-            this.txt_password.TextPlaceholder = "Password";
-            this.txt_password.UseSystemPasswordChar = false;
+            this.txt_password.TextPlaceholder = "";
+            this.txt_password.UseSystemPasswordChar = true;
             this.txt_password.WordWrap = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(33, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(70, 17);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Username";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(33, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 17);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "Password";
             // 
             // loginform
             // 
@@ -316,6 +344,7 @@
             this.login_header.ResumeLayout(false);
             this.login_header.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -331,5 +360,7 @@
         private Bunifu.Framework.UI.BunifuThinButton2 btn_login;
         private Bunifu.UI.WinForms.BunifuTextbox.BunifuTextBox txt_password;
         private Bunifu.Framework.UI.BunifuThinButton2 btn_cancel;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

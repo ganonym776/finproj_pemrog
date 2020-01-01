@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using finproj.Model.Entity;
 using finproj.Controller;
+using System.Data.OleDb;
 
 namespace finproj
 {
@@ -17,16 +17,19 @@ namespace finproj
     {
         private List<Pegawai> listOfPegawai = new List<Pegawai>();
         private PegawaiController controller;
+        int catchID;
         public Karyawan()
         {
             InitializeComponent();
             controller = new PegawaiController();
             InisialisasiListView();
             LoadDataPegawai();
+            LoadDropdownJbt();
         }
+
         private void InisialisasiListView()
         {
-            lvPegawai.View = View.Details;
+            lvPegawai.View = System.Windows.Forms.View.Details;
             lvPegawai.Columns.Add(" ", 7, HorizontalAlignment.Center);
             lvPegawai.Columns.Add("ID.", 60, HorizontalAlignment.Center);
             lvPegawai.Columns.Add("Nama", 130, HorizontalAlignment.Center);
@@ -41,7 +44,7 @@ namespace finproj
             lvPegawai.Columns.Add("alamat", 100, HorizontalAlignment.Center);
             lvPegawai.Columns.Add("Tgl Masuk", 130, HorizontalAlignment.Center);
         }
-
+    
         public void LoadDataPegawai()
         {
             lvPegawai.Items.Clear();
@@ -65,6 +68,34 @@ namespace finproj
                 itm.SubItems.Add(krywn.TglMasuk.ToShortDateString());
 
                 lvPegawai.Items.Add(itm);
+            }
+        }
+
+        public void LoadDropdownJbt()
+        {
+            string startupPath = Environment.CurrentDirectory;
+            string dbName = startupPath + @"\Database\DbPayroll.mdb";
+            string strCon = @"Provider=Microsoft.Jet.OLEDB.4.0;DataSource='" + dbName + "'";
+
+            try
+            {
+                using (OleDbConnection conn = new OleDbConnection(strCon))
+                {
+                    conn.Open();
+                    string strSql = @"SELECT Kd_jbt, Nm_jbt FROM jabatan";
+                    OleDbDataAdapter adapter = new OleDbDataAdapter(new OleDbCommand(strSql, conn));
+                    DataSet dset = new DataSet();
+                    adapter.Fill(dset);
+                    drpdJabatan.DataSource = dset.Tables[0];
+                    
+                    drpdJabatan.DisplayMember = "Nm_jbt";
+                    drpdJabatan.ValueMember = "Kd_jbt";
+
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.Print("Create error: {0}", ex.Message);
             }
         }
 
@@ -110,6 +141,7 @@ namespace finproj
         private void btn_Update_Click(object sender, EventArgs e)
         {
             Pegawai krywn = new Pegawai();
+            krywn.IdKrywn = catchID;
             krywn.NamaKrywn = txtNama.Text;
             krywn.Nik = txtNik.Text;
             krywn.Telp = txtTelp.Text;
@@ -117,7 +149,7 @@ namespace finproj
             krywn.Gender = drpdGender.Text;
             krywn.Goldar = drpdGoldar.Text;
             krywn.TmptLahir = txtTmpLhr.Text;
-            krywn.TglLahir = dateTglLhr.Value;
+            krywn.TglLahir = Convert.ToDateTime(dateTglLhr.Value.ToShortDateString());
             krywn.Agama = drpdAgama.Text;
             krywn.Status = drpdStatus.Text;
             krywn.KodeJbt = drpdJabatan.SelectedIndex + 1;
@@ -149,6 +181,7 @@ namespace finproj
             if(lvPegawai.SelectedItems.Count > 0)
             {
                 Pegawai krywn = listOfPegawai[lvPegawai.SelectedIndices[0]];
+                catchID = krywn.IdKrywn;
                 txtNama.Text = krywn.NamaKrywn.ToString();
                 txtNik.Text = krywn.Nik.ToString();
                 txtTelp.Text = krywn.Telp.ToString();
@@ -158,7 +191,7 @@ namespace finproj
                 txtTmpLhr.Text = krywn.TmptLahir.ToString();
                 drpdAgama.Text = krywn.Agama.ToString();
                 drpdStatus.Text = krywn.Status.ToString();
-                drpdJabatan.SelectedValue = krywn.KodeJbt.ToString();
+                drpdJabatan.SelectedIndex = krywn.KodeJbt;
                 drpdPddkn.Text = krywn.PnddkanAkhir.ToString();
             }
             else
@@ -215,6 +248,11 @@ namespace finproj
                 MessageBox.Show("Data Karyawan belum dipilih !!!", "Peringatan",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void jabatanBindingSource_CurrentChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

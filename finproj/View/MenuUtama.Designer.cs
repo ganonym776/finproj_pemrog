@@ -48,8 +48,9 @@
             this.Penggajian = new finproj.Penggajian();
             this.Lembur = new finproj.Lembur();
             this.Karyawan = new finproj.Karyawan();
-            this.Home = new finproj.Home();
+            this.Home = new finproj.FormGaji();
             this.Absensi = new finproj.Absensi();
+            this.settings1 = new finproj.View.Settings();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.Header.SuspendLayout();
@@ -385,6 +386,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.settings1);
             this.panel2.Controls.Add(this.Penggajian);
             this.panel2.Controls.Add(this.Lembur);
             this.panel2.Controls.Add(this.Karyawan);
@@ -429,6 +431,7 @@
             // 
             // Home
             // 
+            this.Home.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
             this.Home.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Home.Location = new System.Drawing.Point(0, 0);
             this.Home.Name = "Home";
@@ -446,6 +449,15 @@
             this.Absensi.Size = new System.Drawing.Size(678, 513);
             this.Absensi.TabIndex = 0;
             this.Absensi.Visible = false;
+            // 
+            // settings1
+            // 
+            this.settings1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.settings1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settings1.Location = new System.Drawing.Point(0, 0);
+            this.settings1.Name = "settings1";
+            this.settings1.Size = new System.Drawing.Size(678, 513);
+            this.settings1.TabIndex = 5;
             // 
             // MenuUtama
             // 
@@ -493,11 +505,12 @@
         //private Absensi absensi1;
         //private Penggajian penggajian1;
         //Lembur lembur1;
-        private Home Home;
+        private FormGaji Home;
         private Absensi Absensi;
         private Penggajian Penggajian;
         private Lembur Lembur;
         private Karyawan Karyawan;
+        private View.Settings settings1;
     }
 }
 

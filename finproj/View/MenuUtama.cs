@@ -18,7 +18,17 @@ namespace finproj
         public MenuUtama()
         {
             InitializeComponent();
-            
+            LoadMenuUtama();
+        }
+
+        private void LoadMenuUtama()
+        {
+            Karyawan.Visible = false;
+            Penggajian.Visible = false;
+            Home.Visible = true;
+            Absensi.Visible = false;
+            Lembur.Visible = false;
+            settings1.Visible = false;
         }
 
         private void login_Load(object sender, EventArgs e)
@@ -30,7 +40,6 @@ namespace finproj
         {
 
         }
-
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -44,8 +53,7 @@ namespace finproj
 
         private void bunifuImageButton4_Click(object sender, EventArgs e)
         {
-            this.Close();
-
+            Application.Exit();
         }
 
         private void bunifuImageButton3_Click(object sender, EventArgs e)
@@ -55,7 +63,12 @@ namespace finproj
 
         private void bunifuFlatButton6_Click(object sender, EventArgs e)
         {
-
+            Karyawan.Visible = false;
+            Penggajian.Visible = false;
+            Home.Visible = false;
+            Absensi.Visible = false;
+            Lembur.Visible = false;
+            settings1.Visible = true;
         }
 
         private void bunifuFlatButton1_Click(object sender, EventArgs e)
@@ -65,6 +78,7 @@ namespace finproj
             Home.Visible = true;
             Absensi.Visible = false;
             Lembur.Visible = false;
+            settings1.Visible = false;
         }
 
         private void btn_krywn_Click(object sender, EventArgs e)
@@ -75,6 +89,7 @@ namespace finproj
             Home.Visible = false;
             Absensi.Visible = false;
             Lembur.Visible = false;
+            settings1.Visible = false;
         }
 
         private void btn_absensi_Click(object sender, EventArgs e)
@@ -84,6 +99,7 @@ namespace finproj
             Home.Visible = false;
             Absensi.Visible = true;
             Lembur.Visible = false;
+            settings1.Visible = false;
         }
 
         private void btn_gaji_Click(object sender, EventArgs e)
@@ -93,6 +109,7 @@ namespace finproj
             Home.Visible = false;
             Absensi.Visible = false;
             Lembur.Visible = false;
+            settings1.Visible = false;
         }
 
         private void btn_lembur_Click(object sender, EventArgs e)
@@ -102,6 +119,7 @@ namespace finproj
             Home.Visible = false;
             Absensi.Visible = false;
             Lembur.Visible = true;
+            settings1.Visible = false;
         }
 
         private void home_Load(object sender, EventArgs e)

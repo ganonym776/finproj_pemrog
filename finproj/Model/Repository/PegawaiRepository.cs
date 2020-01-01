@@ -32,8 +32,6 @@ namespace finproj.Model.Repository
             {
                 try
                 {
-                    MessageBox.Show("haaaaaaaaaaaaaaaaaa");
-                    // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
                     result = cmd.ExecuteNonQuery();
                 }
                 catch (Exception ex)
@@ -49,29 +47,16 @@ namespace finproj.Model.Repository
         {
             int result = 0;
 
-            string sql = @"update karyawan set Nm_karyawan = '" + krywn.NamaKrywn + "', Nik = '" + krywn.Nik + "', Gender =  '" + krywn.Gender + "', Goldar = '" + krywn.Goldar + "' , Agama = '" + krywn.Agama + "', Alamat = '" + krywn.Alamat + "', Telp = '" + krywn.Telp + "', Tmpt_lahir = '" + krywn.TmptLahir + "', Tgl_lahir ='" + krywn.TglLahir + "', Status = '" + krywn.Status + "', Pddkn_akhir = '" + krywn.PnddkanAkhir + "', Kd_jbt = '" + krywn.KodeJbt + "'  where ID_karyawan = '" + krywn.IdKrywn + "' ";
+            string sql = @"update karyawan set Nm_karyawan = '" + krywn.NamaKrywn + "', Nik = '" + krywn.Nik + "', Gender = '" + krywn.Gender + "', Goldar = '" + krywn.Goldar + "' , Agama = '" + krywn.Agama + "', Alamat = '" + krywn.Alamat + "', Telp = '" + krywn.Telp + "', Tmpt_lahir = '" + krywn.TmptLahir + "', Tgl_lahir ='" + krywn.TglLahir + "', Status = '" + krywn.Status + "', Pddkn_akhir = '" + krywn.PnddkanAkhir + "', Kd_jbt = '" + krywn.KodeJbt + "'  where ID_karyawan = @Id ";
 
             using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
             {
-                /*
-                cmd.Parameters.AddWithValue("@IdKrywn", krywn.IdKrywn);
-                cmd.Parameters.AddWithValue("@NamaKrywn", krywn.NamaKrywn);
-                cmd.Parameters.AddWithValue("@Nik", krywn.Nik);
-                cmd.Parameters.AddWithValue("@Gender", krywn.Gender);
-                cmd.Parameters.AddWithValue("@Goldar", krywn.Goldar);
-                cmd.Parameters.AddWithValue("@Agama", krywn.Agama);
-                cmd.Parameters.AddWithValue("@Alamat", krywn.Alamat);
-                cmd.Parameters.AddWithValue("@Telp", krywn.Telp);
-                cmd.Parameters.AddWithValue("@TmptLahir", krywn.TmptLahir);
-                cmd.Parameters.AddWithValue("@TglLahir", krywn.TglLahir);
-                cmd.Parameters.AddWithValue("@Status", krywn.Status);
-                cmd.Parameters.AddWithValue("@KdJbt", krywn.KodeJbt);
-                cmd.Parameters.AddWithValue("@TglMasuk", krywn.TglMasuk);
-                */
+                cmd.Parameters.AddWithValue("@Id", krywn.IdKrywn);
                 try
                 {
-                    // jalankan perintah INSERT dan tampung hasilnya ke dalam variabel result
+
                     result = cmd.ExecuteNonQuery();
+                    MessageBox.Show(" ' " + result + " ' ");
                 }
                 catch (Exception ex)
                 {
@@ -98,7 +83,6 @@ namespace finproj.Model.Repository
                         {
                             // proses konversi dari row result set ke object
                             Pegawai krywn = new Pegawai();
-                            //MessageBox.Show("'"+dtr["ID_karyawan"]+"'");
                             krywn.IdKrywn = Convert.ToInt32(dtr["ID_karyawan"].ToString());
                             krywn.NamaKrywn = dtr["Nm_karyawan"].ToString();
                             krywn.Nik = dtr["Nik"].ToString();
@@ -107,8 +91,10 @@ namespace finproj.Model.Repository
                             krywn.Agama = dtr["Agama"].ToString();
                             krywn.Alamat = dtr["Alamat"].ToString();
                             krywn.Telp = dtr["Telp"].ToString();
+                            krywn.TmptLahir = dtr["Tmpt_lahir"].ToString();
                             krywn.TglLahir = Convert.ToDateTime(dtr["Tgl_lahir"].ToString());
-                            krywn.Ttl = dtr["Tmpt_lahir"].ToString() +", "+ krywn.TglLahir.ToLongDateString();
+                            krywn.Ttl = krywn.TmptLahir +", "+ krywn.TglLahir.ToLongDateString();
+                            krywn.PnddkanAkhir = dtr["Pddkn_akhir"].ToString();
                             krywn.Status = dtr["Status"].ToString();
                             krywn.Nm_jbt = dtr["Nm_jbt"].ToString();
                             krywn.TglMasuk = Convert.ToDateTime(dtr["Tgl_masuk"].ToString());
@@ -132,13 +118,13 @@ namespace finproj.Model.Repository
             List<Pegawai> list = new List<Pegawai>();
             try
             {
-                string sql = @"select Id_karyawan, Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, karyawan.Kd_jbt, Nm_jbt, Tgl_masuk
+                string sql = @"select ID_karyawan, Nm_karyawan, Nik, Gender, Goldar, Agama, Alamat, Telp, Tmpt_lahir, Tgl_lahir, Status, Pddkn_akhir, karyawan.Kd_jbt, Nm_jbt, Tgl_masuk
                            from karyawan inner join jabatan on karyawan.Kd_jbt = jabatan.Kd_jbt
-                            where Nm_karyawan like '"+nama+"' order by Nm_karyawan";
+                            where Nm_karyawan like @nama order by Nm_karyawan";
 
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
-                    //cmd.Parameters.AddWithValue("@NamaKrywn", "%" + nama + "%");
+                    cmd.Parameters.AddWithValue("@nama", "%" + nama + "%");
 
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
                     {
@@ -155,8 +141,10 @@ namespace finproj.Model.Repository
                             krywn.Agama = dtr["Agama"].ToString();
                             krywn.Alamat = dtr["Alamat"].ToString();
                             krywn.Telp = dtr["Telp"].ToString();
+                            krywn.TmptLahir = dtr["Tmpt_lahir"].ToString();
                             krywn.TglLahir = Convert.ToDateTime(dtr["Tgl_lahir"].ToString());
-                            krywn.Ttl = dtr["Tmpt_lahir"].ToString() + ", " + krywn.TglLahir.ToLongDateString();
+                            krywn.Ttl = krywn.TmptLahir + ", " + krywn.TglLahir.ToLongDateString();
+                            krywn.PnddkanAkhir = dtr["Pddkn_akhir"].ToString();
                             krywn.Status = dtr["Status"].ToString();
                             krywn.Nm_jbt = dtr["Nm_jbt"].ToString();
                             krywn.TglMasuk = Convert.ToDateTime(dtr["Tgl_masuk"].ToString());

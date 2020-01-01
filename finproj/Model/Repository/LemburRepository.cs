@@ -61,7 +61,7 @@ namespace finproj.Model.Repository
             List<Entity.Lembur> list = new List<Entity.Lembur>();
             try
             {
-                string sql = @"select Id_karyawan, Nm_karyawan, Total_jam, Waktu, Keterangan from lembur inner join karyawan on lembur.Id_karyawan=karyawan.Id_karyawan order by waktu";
+                string sql = @"select ID, lembur.Id_karyawan, Nm_karyawan, Total_jam, Waktu, Keterangan from lembur inner join karyawan on lembur.Id_karyawan=karyawan.Id_karyawan order by waktu";
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
@@ -93,9 +93,11 @@ namespace finproj.Model.Repository
             List<Entity.Lembur> list = new List<Entity.Lembur>();
             try
             {
-                string sql = @"select Id_karyawan, Nm_karyawan, Total_jam, Waktu, Keterangan from lembur inner join karyawan on lembur.Id_karyawan=karyawan.Id_karyawan where Nm_karyawan = '"+nama+"'";
+                string sql = @"select lembur.Id_karyawan, Nm_karyawan, Total_jam, Waktu, Keterangan from lembur inner join karyawan on lembur.Id_karyawan=karyawan.Id_karyawan where Nm_karyawan like @nama or lembur.Id_karyawan like @Id";
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
+                    cmd.Parameters.AddWithValue("@nama", "%"+nama+"%");
+                    cmd.Parameters.AddWithValue("@Id", "%"+nama+"%");
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
                     {
                         while (dtr.Read())

@@ -40,8 +40,7 @@ namespace finproj.Model.Context
             // jika terjadi error di blok try, akan ditangani langsung oleh blok catch
             catch (Exception ex)
             {
-                MessageBox.Show("Can't connect to data sources");
-                //System.Diagnostics.Debug.Print("Open Connection Error: {0}", ex.Message);
+                System.Diagnostics.Debug.Print("Create error: {0}", ex.Message);
             }
 
             return conn;

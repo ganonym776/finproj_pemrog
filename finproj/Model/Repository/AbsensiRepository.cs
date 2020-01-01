@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading.Tasks;
 
 namespace finproj.Model.Repository
@@ -22,7 +23,7 @@ namespace finproj.Model.Repository
         {
             int result = 0;
 
-            string sql = @"insert into absensi (Id_krywn, Tanggal, Jam_masuk) values ('"+absen.Id_karyawan+"', '"+absen.Tanggal+"', '"+absen.Jam_masuk+"')";
+            string sql = @"insert into absensi (Id_karyawan, Tanggal, Jam_masuk) values ('"+absen.Id_karyawan+"', '"+absen.Tanggal+"', '"+absen.Jam_masuk+"')";
             using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
             {
                 try
@@ -63,20 +64,20 @@ namespace finproj.Model.Repository
 
             try
             {
-                string sql = @"select ID, Id_karyawan, Nm_karyawan, absensi.Tanggal, absensi.Jam_masuk from absensi inner join karyawan on absensi.Id_karyawan=karyawan.Id_karyawan order by Nm_karyawan";
+                string sql = @"select ID, absensi.Id_karyawan, karyawan.Nm_karyawan, absensi.Tanggal, absensi.Jam_masuk from absensi inner join karyawan on absensi.Id_karyawan=karyawan.Id_karyawan order by absensi.Jam_masuk";
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
                     {
                         while (dtr.Read())
                         {
+                            
                             Entity.Absensi absen = new Entity.Absensi();
                             absen.Id = Convert.ToInt32(dtr["ID"].ToString());
                             absen.Id_karyawan = Convert.ToInt32(dtr["Id_karyawan"].ToString());
                             absen.Nm_krywn = dtr["Nm_karyawan"].ToString();
-                            absen.Tanggal = Convert.ToDateTime(dtr["absensi.Tanggal"].ToString());
+                            absen.Tanggal = Convert.ToDateTime(dtr["Tanggal"].ToString());
                             absen.Jam_masuk = Convert.ToDateTime(dtr["Jam_masuk"].ToString());
-
                             list.Add(absen);
                         }
                     }
@@ -95,18 +96,22 @@ namespace finproj.Model.Repository
 
             try
             {
-                string sql = @"select ID, Id_karyawan, Nm_karyawan, absensi.Tanggal, absensi.Jam_masuk from absensi inner join karyawan on absensi.Id_karyawan=karyawan.Id_karyawan where Nm_karyawan='"+nama+"'";
+                string sql = @"select ID, absensi.Id_karyawan, karyawan.Nm_karyawan, absensi.Tanggal, absensi.Jam_masuk from absensi inner join karyawan on absensi.Id_karyawan=karyawan.Id_karyawan where Nm_karyawan like @nama or absensi.Id_karyawan like @Id_karyawan ";
                 using (OleDbCommand cmd = new OleDbCommand(sql, _conn))
                 {
+                    cmd.Parameters.AddWithValue("@nama", "%" + nama + "%");
+                    cmd.Parameters.AddWithValue("@Id_karyawan", "%" + nama + "%");
+                    MessageBox.Show("gunawan");
                     using (OleDbDataReader dtr = cmd.ExecuteReader())
                     {
                         while (dtr.Read())
                         {
+                            MessageBox.Show("gunawan ada");
                             Entity.Absensi absen = new Entity.Absensi();
                             absen.Id = Convert.ToInt32(dtr["ID"].ToString());
                             absen.Id_karyawan = Convert.ToInt32(dtr["Id_karyawan"].ToString());
                             absen.Nm_krywn = dtr["Nm_karyawan"].ToString();
-                            absen.Tanggal = Convert.ToDateTime(dtr["absensi.Tanggal"].ToString());
+                            absen.Tanggal = Convert.ToDateTime(dtr["Tanggal"].ToString());
                             absen.Jam_masuk = Convert.ToDateTime(dtr["Jam_masuk"].ToString());
 
                             list.Add(absen);

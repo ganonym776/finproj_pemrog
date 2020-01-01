@@ -128,7 +128,7 @@
         q7RtDMAXxdz+UU2tS64AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuTextBox6.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="txt_search.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAOoAAAAdCAYAAACkA/DvAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACRSURBVHhe7dOxCQMxAARB9V+VHpXhMlyAH4ESd6CFGbjk
@@ -137,18 +137,7 @@
         AAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="bunifuButton1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAHQAAAAdCAYAAAB7YUi1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEKSURBVGhD7ZotDsJAFITfEXqEHoEDIEgwvQOmqqdAcBSC
-        RKKbFIFAoxoMGlVDW9KfLJR9iCY9QN9kJvnS3WTdl8mYCgMY59yiKJrT9+vu9/KRJPl+OA/h3cR9+T2u
-        VKfIZpOv4zh3QXBxImdijCi6udere6rOX0MnHxI7eIcaCrXP8fg8q04KRWAkVCTbTT0idvCl1LCh9qFQ
-        MLihYHBDwfCl1LCh9qFQMLihYHBDwfCl1LCh9qFQMLihYHBDwfCl1LCh9qFQMLihYHBDwfCl1LCh9qFQ
-        MLihYIyEpmlxGP7tnHpI5k8YXl1dd5Xq/DU0fr/70jc12w3ff3if/71t+6aquq3qZHAi8gGocMY9yvKj
-        ggAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="bunifuButton2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_Cari.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAC4AAAAdCAYAAADVV140AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADbSURBVFhH7ZgxCoNAEEWntPQoOUIgjXewsbL2BnqUkNIy
@@ -158,7 +147,7 @@
         q7RtDMAXxdz+UU2tS64AAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="bunifuTextBox1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="txt_Cari.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAKsAAAAdCAYAAADVe5xxAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
         YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAACJSURBVHhe7dKxCQMxAARB9V+VHpXhMlyAH4ESd6CFGbjk
